@@ -6,7 +6,9 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Rango says hello! To go to the about page, click <a href='/rango/about/'> here </a>")
+    context_dict = {'boldmessage' : "this is my strong message"}
+
+    return render(request, 'rango/index.html', context=context_dict)
 
 def about(request):
     return HttpResponse("This is the about page of the Rango app. \
