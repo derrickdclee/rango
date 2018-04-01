@@ -9,12 +9,25 @@
 
     <body>
         <h1>Rango says... </h1>
+
         <div>
             Hey there my friend! <br/>
-            <strong> {{ boldmessage }} </strong> <br/>
         </div>
+
         <div>
-            <a href="/rango/about/">About</a> <br/>
+            {% if categories %}
+            <ul>
+                {% for category in categories %}
+                <li>{{category.name}}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <strong>There are no categories.</strong>
+            {% endif %}
+        </div>
+
+        <div>
+            <a href="/rango/about/">About rango</a> <br/>
             <div>
                 This image is a static file. <br />
                 <img src="{% static 'images/spongebob.jpg' %}" alt="Picture of Spongebob"/>
